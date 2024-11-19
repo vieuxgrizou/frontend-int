@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: intensify-api
+    env: node
+    buildCommand: npm install && npm run prisma:generate && npm run prisma:migrate
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: https://intensify.io
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /api/health
+    autoDeploy: true

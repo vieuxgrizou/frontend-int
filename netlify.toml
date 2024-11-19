@@ -1,0 +1,28 @@
+[build]
+  command = "CI=false npm run build"
+  publish = "dist"
+  base = "/"
+
+[build.environment]
+  NODE_VERSION = "18"
+  CI = "false"
+  VITE_API_URL = "https://api-g64uqov7ba-ew.a.run.app"
+  VITE_FIREBASE_API_KEY = "AIzaSyCP_ptZDJ9A62D90GTNDKMjX0QVnmTy_hk"
+  VITE_FIREBASE_AUTH_DOMAIN = "intensify-api.firebaseapp.com"
+  VITE_FIREBASE_PROJECT_ID = "intensify-api"
+  VITE_FIREBASE_STORAGE_BUCKET = "intensify-api.appspot.com"
+  VITE_FIREBASE_MESSAGING_SENDER_ID = "758001542257"
+  VITE_FIREBASE_APP_ID = "1:758001542257:web:a219515b5db4c077a967d0"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Cache-Control = "no-cache"
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+    Access-Control-Allow-Headers = "X-Requested-With, Content-Type, Authorization"

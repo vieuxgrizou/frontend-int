@@ -1,0 +1,68 @@
+/* Styles spécifiques pour les langues RTL */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .ml-1,
+.rtl .ml-2,
+.rtl .ml-3,
+.rtl .ml-4 {
+  margin-left: 0;
+  margin-right: 0.25rem;
+  margin-right: 0.5rem;
+  margin-right: 0.75rem;
+  margin-right: 1rem;
+}
+
+.rtl .mr-1,
+.rtl .mr-2,
+.rtl .mr-3,
+.rtl .mr-4 {
+  margin-right: 0;
+  margin-left: 0.25rem;
+  margin-left: 0.5rem;
+  margin-left: 0.75rem;
+  margin-left: 1rem;
+}
+
+.rtl .pl-1,
+.rtl .pl-2,
+.rtl .pl-3,
+.rtl .pl-4 {
+  padding-left: 0;
+  padding-right: 0.25rem;
+  padding-right: 0.5rem;
+  padding-right: 0.75rem;
+  padding-right: 1rem;
+}
+
+.rtl .pr-1,
+.rtl .pr-2,
+.rtl .pr-3,
+.rtl .pr-4 {
+  padding-right: 0;
+  padding-left: 0.25rem;
+  padding-left: 0.5rem;
+  padding-left: 0.75rem;
+  padding-left: 1rem;
+}
+
+.rtl .space-x-1 > :not([hidden]) ~ :not([hidden]),
+.rtl .space-x-2 > :not([hidden]) ~ :not([hidden]),
+.rtl .space-x-3 > :not([hidden]) ~ :not([hidden]),
+.rtl .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+.rtl .flex-row {
+  flex-direction: row-reverse;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.rtl .text-right {
+  text-align: left;
+}

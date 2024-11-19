@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Fonction pour vérifier si l'utilisateur est authentifié
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    // Fonction pour vérifier si l'utilisateur est propriétaire du document
+    function isOwner(userId) {
+      return isAuth() && request.auth.uid == userId;
+    }
+
+    // Collection users
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      // Permettre la création si l'ID correspond à l'utilisateur authentifié
+      allow create: if isAuth() && userId == request.auth.uid;
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
+    }
+
+    // Collection sites
+    match /sites/{siteId} {
+      allow read: if isAuth();
+      allow create: if isAuth();
+      allow update, delete: if isAuth() && resource.data.userId == request.auth.uid;
+    }
+
+    // Collection personas
+    match /personas/{personaId} {
+      allow read: if isAuth();
+      allow create: if isAuth();
+      allow update, delete: if isAuth() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

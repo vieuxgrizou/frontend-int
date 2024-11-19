@@ -1,0 +1,1 @@
+// Ce fichier peut être supprimé car nous n'utilisons plus l'authentification à deux facteurs

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "sourceMap": true,                 // Pour faciliter le débogage
+    "removeComments": true,            // Pour supprimer les commentaires du code compilé
+    "moduleResolution": "node",        // Résolution de module basée sur Node.js
+    "noImplicitReturns": true,         // Pour s'assurer que toutes les branches ont des retours explicites
+    "noUnusedLocals": true,            // Avertissement sur les variables inutilisées
+    "noUnusedParameters": true         // Avertissement sur les paramètres inutilisés
+  },
+  "include": ["src/**/*", "src/types/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

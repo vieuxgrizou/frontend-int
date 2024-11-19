@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark light;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 transition-colors duration-200;
+  }
+
+  body.dark {
+    @apply bg-dark text-dark-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900 dark:text-dark-primary transition-colors duration-200;
+  }
+
+  input, textarea, select {
+    @apply text-gray-900 dark:text-dark-primary;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply space-y-6 p-4 sm:p-6 lg:p-8;
+  }
+
+  .page-header {
+    @apply flex justify-between items-center mb-6;
+  }
+
+  .page-title {
+    @apply text-2xl font-semibold text-gray-900 dark:text-dark-primary transition-colors duration-200;
+  }
+
+  .container-card {
+    @apply bg-white dark:bg-dark-paper border border-gray-200 dark:border-dark rounded-lg shadow-sm p-6 transition-colors duration-200;
+  }
+
+  .input-standard {
+    @apply block w-full rounded-lg border border-gray-300 dark:border-dark shadow-sm 
+    focus:border-primary-500 focus:ring-primary-500 
+    bg-white dark:bg-dark-paper
+    text-gray-900 dark:text-dark-primary
+    placeholder-gray-500 dark:placeholder-gray-400
+    disabled:bg-gray-50 dark:disabled:bg-dark-hover
+    disabled:text-gray-500 dark:disabled:text-dark-secondary
+    px-3 py-2 sm:text-sm
+    transition-colors duration-200;
+  }
+
+  .button-primary {
+    @apply inline-flex justify-center items-center px-4 py-2 border border-transparent 
+    rounded-lg shadow-sm text-sm font-medium text-white 
+    bg-primary-600 hover:bg-primary-700 
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-dark
+    disabled:opacity-50 disabled:cursor-not-allowed
+    transition-all duration-200;
+  }
+
+  .button-secondary {
+    @apply inline-flex justify-center items-center px-4 py-2 border border-gray-300 dark:border-dark 
+    rounded-lg shadow-sm text-sm font-medium 
+    text-gray-700 dark:text-dark-primary 
+    bg-white dark:bg-dark-paper 
+    hover:bg-gray-50 dark:hover:bg-dark-hover 
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-dark
+    disabled:opacity-50 disabled:cursor-not-allowed
+    transition-all duration-200;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 dark:bg-black/75 flex items-center justify-center p-4 z-50;
+  }
+
+  .modal-content {
+    @apply container-card max-w-2xl w-full max-h-[90vh] overflow-y-auto;
+  }
+
+  .modal-header {
+    @apply flex justify-between items-center p-4 border-b border-gray-200 dark:border-dark;
+  }
+
+  .modal-body {
+    @apply p-4 space-y-4;
+  }
+
+  .modal-footer {
+    @apply flex justify-end gap-3 pt-4 border-t border-gray-200 dark:border-dark;
+  }
+}

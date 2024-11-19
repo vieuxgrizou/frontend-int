@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sites     Site[]
+  personas  Persona[]
+}
+
+model Site {
+  id                 String   @id @default(uuid())
+  name               String
+  url                String
+  applicationPassword String
+  aiProvider         String
+  aiModel            String
+  autoGenerate       Boolean  @default(true)
+  userId             String
+  user               User     @relation(fields: [userId], references: [id])
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  assignedPersonas   Persona[]
+}
+
+model Persona {
+  id          String   @id @default(uuid())
+  name        String
+  gender      String
+  age         Int
+  writingStyle String
+  tone        String
+  languages   String[]
+  errorRate   Float
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  sites       Site[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
